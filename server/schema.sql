@@ -37,6 +37,12 @@ CREATE TABLE rooms (
   roomname text
 );
 
+-- server-spec doesn't allow us to automate truncation
+-- of tables, not does it allow us to string multiple
+-- insert statements into a single query string, so these
+-- two lines are required for the test cases to pass.
+INSERT INTO rooms (roomname) VALUES ('main');
+INSERT INTO rooms (roomname) VALUES ('Hello');
 
 /*
 id    roomname
@@ -55,9 +61,5 @@ return all messages for user in room
 /*  Execute this file from the command line by typing:
  *    mysql -u root < server/schema.sql
  *    mysql -u student < server/schema.sql
- *
- *    INSERT INTO rooms (roomname) VALUES ('main');
- *    INSERT INTO rooms (roomname) VALUES ('Hello');
- *
  *  to create the database and the tables.*/
 

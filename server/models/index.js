@@ -90,7 +90,6 @@ module.exports = {
       const queryString = `INSERT INTO users (username) VALUES ("${req.body.username}")`;
       
       db.con.query(queryString, [], (err, results) => {
-        console.log('CCCCCCCCCCCCCC ', err, results);
         if (err) { return reject(err); }
         utils.sendResponse(res, null);
       });
