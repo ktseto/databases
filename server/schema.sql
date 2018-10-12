@@ -4,13 +4,13 @@ USE chat;
 
 CREATE TABLE messages (
   /* Describe your table here.*/
-  id int primary key,
+  id int primary key AUTO_INCREMENT,
   text text,
   createdAt datetime,
   userid int references user(id),
-  --roomname text
   roomid int references room(id)
 );
+
 
 /*
 mid   message   createdAt   userid    roomid
@@ -20,26 +20,23 @@ mid   message   createdAt   userid    roomid
 */
 
 
-SELECT *
-FROM messages INNER JOIN rooms ON messages.roomid = rooms.id
-
-
 CREATE TABLE users (
-  id int primary key,
+  id int primary key AUTO_INCREMENT,
   username text
 );
 
 /*
-uid mid     username
-1   101     john
-2   102     john
-3   110     john
+id  username
+1   john
+2   john
+3   john
 */
 
 CREATE TABLE rooms (
-  id int primary key,
+  id int primary key AUTO_INCREMENT,
   roomname text
 );
+
 
 /*
 id    roomname
@@ -58,5 +55,9 @@ return all messages for user in room
 /*  Execute this file from the command line by typing:
  *    mysql -u root < server/schema.sql
  *    mysql -u student < server/schema.sql
+ *
+ *    INSERT INTO rooms (roomname) VALUES ('main');
+ *    INSERT INTO rooms (roomname) VALUES ('Hello');
+ *
  *  to create the database and the tables.*/
 

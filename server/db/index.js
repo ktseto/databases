@@ -8,7 +8,8 @@ var con = mysql.createConnection({
   host: "localhost",
   user: "student",
   password: "student",
-  database: "chat"
+  database: "chat",
+  //multipleStatements: true
 });
 
 con.connect(function(err) {
